@@ -106,8 +106,6 @@ nav ul li a:hover::after {
     padding: 70px 20px;
     background: #fff;
     text-align: center;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 }
 
 #productos h2 {
@@ -161,9 +159,7 @@ nav ul li a:hover::after {
 }
 
 .comprar-btn {
-=======
-=======
->>>>>>> Stashed changes
+
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -193,7 +189,6 @@ nav ul li a:hover::after {
 
 #sobre-nosotros ul {
     margin-top: 25px;
->>>>>>> Stashed changes
     display: inline-block;
     margin-top: 12px;
     background: linear-gradient(45deg, #ff7675, #ff4757);
