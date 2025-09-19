@@ -17,17 +17,21 @@
             <li><a href="#productos">Productos</a></li>
             <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
             <li><a href="#contacto">Contacto / Pedido</a></li>
+            <li><a href="carrito.html" id="cart-link">Carrito <span id="cart-count" class="cart-count">0</span></a></li>
         </ul>
     </nav>
 </header>
-
 <main class="principal">
+    <!-- Floating Cart Icon -->
+    <a href="carrito.html" id="floating-cart" class="floating-cart">
+        <span class="cart-icon">🛒</span>
+        <span id="cart-count-icon" class="cart-count">0</span>
+    </a>
     <!-- Sección principal (Inicio) -->
     <section id="inicio">
         <img src="banner.jpg" alt="Banner principal de la tienda">
         <p>¡Bienvenido a TiendaOnline! Tu mejor opción en productos exclusivos.</p>
     </section>
-
     <!-- Sección de productos -->
     <section id="productos">
         <h2>Nuestros productos</h2>
@@ -36,60 +40,54 @@
                 <img src="producto1.jpg" alt="Producto 1">
                 <h3>Producto 1</h3>
                 <p>Descripción corta del producto 1.</p>
-                <p>Precio: $100</p>
-                <a href="#contacto" class="comprar-btn" data-producto="Producto 1">Comprar</a>
+                <p class="precio">Precio: $100</p>
+                <button class="cart-btn" data-producto="Producto 1" data-precio="100">Agregar al Carrito</button>
             </div>
             <div class="producto">
                 <img src="producto2.jpg" alt="Producto 2">
                 <h3>Producto 2</h3>
                 <p>Descripción corta del producto 2.</p>
-                <p>Precio: $150</p>
-                <a href="#contacto" class="comprar-btn" data-producto="Producto 2">Comprar</a>
+                <p class="precio">Precio: $150</p>
+                <button class="cart-btn" data-producto="Producto 2" data-precio="150">Agregar al Carrito</button>
             </div>
             <div class="producto">
                 <img src="producto3.jpg" alt="Producto 3">
                 <h3>Producto 3</h3>
                 <p>Descripción corta del producto 3.</p>
-                <p>Precio: $200</p>
-                <a href="#contacto" class="comprar-btn" data-producto="Producto 3">Comprar</a>
+                <p class="precio">Precio: $200</p>
+                <button class="cart-btn" data-producto="Producto 3" data-precio="200">Agregar al Carrito</button>
             </div>
         </div>
     </section>
-
-<section id="sobre-nosotros"> 
-    <h2>Sobre nosotros</h2>
-    <p>
-        Somos una tienda dedicada a ofrecer productos de calidad desde 2020. 
-        Nuestro compromiso es brindar a cada cliente una experiencia única de compra, 
-        ofreciendo artículos cuidadosamente seleccionados y un servicio que se adapta a sus necesidades. 
-        Creemos en la importancia de la innovación, la confianza y la satisfacción total de nuestros clientes.
-    </p>
-    <p>
-        A lo largo de estos años, hemos crecido gracias a la preferencia de quienes buscan no solo productos, 
-        sino también un acompañamiento cercano y asesoramiento especializado. 
-        Nuestra misión es convertir cada compra en una experiencia positiva y memorable.
-    </p>
-    <ul>
-        <li>Atención personalizada: contamos con un equipo dispuesto a asesorarte en cada paso de tu compra.</li>
-        <li>Productos exclusivos: seleccionamos cuidadosamente cada artículo para garantizar calidad y originalidad.</li>
-        <li>Envíos a todo el país: trabajamos con servicios de logística confiables para que tus pedidos lleguen seguros y a tiempo.</li>
-    </ul>
-</section>
-
-
+    <section id="sobre-nosotros">
+        <h2>Sobre nosotros</h2>
+        <p>
+            Somos una tienda dedicada a ofrecer productos de calidad desde 2020.
+            Nuestro compromiso es brindar a cada cliente una experiencia única de compra,
+            ofreciendo artículos cuidadosamente seleccionados y un servicio que se adapta a sus necesidades.
+            Creemos en la importancia de la innovación, la confianza y la satisfacción total de nuestros clientes.
+        </p>
+        <p>
+            A lo largo de estos años, hemos crecido gracias a la preferencia de quienes buscan no solo productos,
+            sino también un acompañamiento cercano y asesoramiento especializado.
+            Nuestra misión es convertir cada compra en una experiencia positiva y memorable.
+        </p>
+        <ul>
+            <li>Atención personalizada: contamos con un equipo dispuesto a asesorarte en cada paso de tu compra.</li>
+            <li>Productos exclusivos: seleccionamos cuidadosamente cada artículo para garantizar calidad y originalidad.</li>
+            <li>Envíos a todo el país: trabajamos con servicios de logística confiables para que tus pedidos lleguen seguros y a tiempo.</li>
+        </ul>
+    </section>
     <!-- Formulario de contacto / pedido -->
     <section id="contacto">
         <h2>Contacto / Pedido</h2>
         <form action="mailto:tuemail@dominio.com" method="post" enctype="text/plain">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
-
             <label for="correo">Correo electrónico:</label>
             <input type="email" id="correo" name="correo" required>
-
             <label for="telefono">Teléfono (opcional):</label>
             <input type="tel" id="telefono" name="telefono">
-
             <label for="producto">Producto que desea comprar:</label>
             <select id="producto" name="producto" required>
                 <option value="">Seleccione un producto</option>
@@ -97,18 +95,14 @@
                 <option value="Producto 2">Producto 2</option>
                 <option value="Producto 3">Producto 3</option>
             </select>
-
             <label for="cantidad">Cantidad:</label>
             <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
-
             <label for="mensaje">Mensaje adicional:</label>
             <textarea id="mensaje" name="mensaje"></textarea>
-
             <button type="submit">Enviar pedido</button>
         </form>
     </section>
 </main>
-
 <footer>
     <p>&copy; 2024 TiendaOnline. Todos los derechos reservados.</p>
     <div class="redes-sociales">
@@ -119,7 +113,5 @@
     <p>Tel: 555-123-4567 | Email: contacto@tiendaonline.com</p>
 </footer>
 <script src="../java/java.js"></script>
-</body>
-</html>
 </body>
 </html>
