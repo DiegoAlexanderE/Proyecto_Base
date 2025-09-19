@@ -107,6 +107,7 @@ nav ul li a:hover::after {
     background: #fff;
     text-align: center;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 }
 
 #productos h2 {
@@ -161,6 +162,8 @@ nav ul li a:hover::after {
 
 .comprar-btn {
 =======
+=======
+>>>>>>> Stashed changes
     display: flex;
     flex-direction: column;
     gap: 30px;
