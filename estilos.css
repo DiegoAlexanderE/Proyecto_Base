@@ -1,10 +1,146 @@
-.header {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
+.logotipo {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.8rem;
+    color: #ff4757;
+    font-weight: 700;
+}
+
+.navegacion {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 18px 0;
+}
+.navegacion ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.navegacion ul li {
+    position: relative;
+}
+.navegacion ul li a {
     text-decoration: none;
-    margin: 0 15px;
-    transition: color 0.3s;
+    color: #333;
+    font-size: 1.08rem;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+}
+.navegacion ul li a:hover,
+.navegacion ul li a.active {
+    background: linear-gradient(45deg, #ff7675, #ff4757);
+    color: #fff;
+}
+/* ======== SECCION PRINCIPAL ======== */
+#inicio {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding: 0 20px;
+}
+/* ======== PRODUCTOS ======== */
+#productos {
+    padding: 70px 20px;
+    background: #f5f5f5;
+    text-align: center;
+}
+
+#productos h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.producto-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    padding: 28px 20px 22px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.producto-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 28px rgba(255,71,87,0.13);
+}
+
+.producto-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: #fafafa;
+}
+
+.producto-card h3 {
+    font-size: 1.18rem;
+    margin: 10px 0 8px 0;
+    color: #ff4757;
+    font-weight: 600;
+}
+
+.producto-card p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 14px;
+}
+
+.producto-card .precio {
+    font-size: 1.08rem;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.producto-card button {
+    background: linear-gradient(45deg, #ff7675, #ff4757);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 26px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.producto-card button:hover {
+    background: linear-gradient(45deg, #ff6b81, #e84141);
+    transform: scale(1.06);
+}
+
+@media (max-width: 700px) {
+    .productos-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+    #productos {
+        padding: 40px 8px;
+    }
+    .producto-card {
+        padding: 18px 10px 16px 10px;
+    }
 }
 
 /* ======== SOBRE NOSOTROS ======== */
