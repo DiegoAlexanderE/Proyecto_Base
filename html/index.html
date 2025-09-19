@@ -10,7 +10,7 @@
 
     <header>
         <h1>Bienvenido a TiendaEnLinea</h1>
-        <nav>
+        <nav class="navegacion">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="productos.html">Productos</a></li>
@@ -21,7 +21,7 @@
     </header>
 
     <main>
-        <section>
+        <section class="productos">
             <h2>Productos Destacados</h2>
             <div class="producto">
                 <h3>Producto 1</h3>
@@ -35,6 +35,24 @@
                 <p>Precio: $20.00</p>
                 <button>Añadir al Carrito</button>
             </div>
+        </section>
+
+
+        <section class=" producto">
+            <h2>Contacto</h2>
+            <form action="#" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+
         </section>
 
         <section>
