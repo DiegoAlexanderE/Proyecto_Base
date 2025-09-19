@@ -3,67 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIendaEnLinea</title>
-    <link rel="stylesheet" href="estilos.css"/>
+    <title>TiendaOnline</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+<header></header>
+    <div class="logo">
+        <h1>TiendaOnline</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+            <li><a href="#contacto">Contacto / Pedido</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <header>
-        <h1>Bienvenido a TiendaEnLinea</h1>
-        <nav class="navegacion">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="carrito.html">Carrito</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+<main>
+    <!-- Sección principal (Inicio) -->
+    <section id="inicio">
+        <img src="banner.jpg" alt="Banner principal de la tienda" style="width:100%;max-height:300px;object-fit:cover;">
+        <p>¡Bienvenido a TiendaOnline! Tu mejor opción en productos exclusivos.</p>
+    </section>
 
-    <main>
-        <section class="productos">
-            <h2>Productos Destacados</h2>
+    <!-- Sección de productos -->
+    <section id="productos">
+        <h2>Nuestros productos</h2>
+        <div class="productos-lista">
             <div class="producto">
+                <img src="producto1.jpg" alt="Producto 1">
                 <h3>Producto 1</h3>
-                <p>Descripción del producto 1.</p>
-                <p>Precio: $10.00</p>
-                <button>Añadir al Carrito</button>
+                <p>Descripción corta del producto 1.</p>
+                <p>Precio: $100</p>
+                <a href="#contacto" class="comprar-btn" data-producto="Producto 1">Comprar</a>
             </div>
             <div class="producto">
+                <img src="producto2.jpg" alt="Producto 2">
                 <h3>Producto 2</h3>
-                <p>Descripción del producto 2.</p>
-                <p>Precio: $20.00</p>
-                <button>Añadir al Carrito</button>
+                <p>Descripción corta del producto 2.</p>
+                <p>Precio: $150</p>
+                <a href="#contacto" class="comprar-btn" data-producto="Producto 2">Comprar</a>
             </div>
-        </section>
+            <div class="producto">
+                <img src="producto3.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p>Descripción corta del producto 3.</p>
+                <p>Precio: $200</p>
+                <a href="#contacto" class="comprar-btn" data-producto="Producto 3">Comprar</a>
+            </div>
+        </div>
+    </section>
 
+    <!-- Sección Sobre nosotros -->
+    <section id="sobre-nosotros">
+        <h2>Sobre nosotros</h2>
+        <p>Somos una tienda dedicada a ofrecer productos de calidad desde 2020.</p>
+        <ul>
+            <li>Atención personalizada</li>
+            <li>Productos exclusivos</li>
+            <li>Envíos a todo el país</li>
+        </ul>
+    </section>
 
-        <section class=" producto">
-            <h2>Contacto</h2>
-            <form action="#" method="post">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" required></textarea>
-                
-                <button type="submit">Enviar</button>
-            </form>
+    <!-- Formulario de contacto / pedido -->
+    <section id="contacto">
+        <h2>Contacto / Pedido</h2>
+        <form action="mailto:tuemail@dominio.com" method="post" enctype="text/plain">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
 
-        </section>
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
 
-        <section>
-            <h2>Sobre Nosotros</h2>
-            <p>En TiendaEnLinea, ofrecemos una amplia variedad de productos de alta calidad a precios competitivos. Nuestra misión es brindar una experiencia de compra excepcional a nuestros clientes.</p>
-        </section>
-    </main>
-    
-    
+            <label for="telefono">Teléfono (opcional):</label>
+            <input type="tel" id="telefono" name="telefono">
 
-    <footer>
-        <p>&copy; 2024 TiendaEnLinea. Todos los derechos reservados.</p>
+            <label for="producto">Producto que desea comprar:</label>
+            <select id="producto" name="producto" required>
+                <option value="">Seleccione un producto</option>
+                <option value="Producto 1">Producto 1</option>
+                <option value="Producto 2">Producto 2</option>
+                <option value="Producto 3">Producto 3</option>
+            </select>
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
+
+            <label for="mensaje">Mensaje adicional:</label>
+            <textarea id="mensaje" name="mensaje"></textarea>
+
+            <button type="submit">Enviar pedido</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 TiendaOnline. Todos los derechos reservados.</p>
+    <div class="redes-sociales">
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">Twitter</a>
+    </div>
+    <p>Tel: 555-123-4567 | Email: contacto@tiendaonline.com</p>
+</footer>
 </body>
 </html>
