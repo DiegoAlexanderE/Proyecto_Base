@@ -1,117 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TiendaOnline</title>
+    <title>Tienda Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-<header class="logotipo">
-    <div>
-        <h1>TiendaOnline</h1>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Tienda Online</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#" id="cart-toggle">Carrito <span id="cart-count-icon" class="cart-count">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Floating Cart -->
+    <div class="floating-cart" id="floating-cart-toggle">
+        <i class="fas fa-shopping-cart cart-icon"></i>
+        <span id="cart-count" class="cart-count">0</span>
     </div>
-    <nav class="navegacion">
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
-            <li><a href="#contacto">Contacto / Pedido</a></li>
-            <li><a href="carrito.html" id="cart-link">Carrito <span id="cart-count" class="cart-count">0</span></a></li>
-        </ul>
-    </nav>
-</header>
-<main class="principal">
-    <!-- Floating Cart Icon -->
-    <a href="carrito.html" id="floating-cart" class="floating-cart">
-        <span class="cart-icon">🛒</span>
-        <span id="cart-count-icon" class="cart-count">0</span>
-    </a>
-    <!-- Sección principal (Inicio) -->
+
+    <!-- Cart Panel -->
+    <div class="cart-panel" id="cart-panel">
+        <button class="close-cart-btn" id="close-cart">&times;</button>
+        <h2>Tu Carrito</h2>
+        <ul id="cart-items"></ul>
+        <p class="cart-total" id="cart-total">Total: $0</p>
+        <button class="buy-btn" id="buy-btn">Comprar</button>
+        <button class="clear-cart-btn" onclick="clearCart()">Vaciar Carrito</button>
+    </div>
+
+    <!-- Payment Panel -->
+    <div class="payment-panel" id="payment-panel">
+        <button class="close-payment-btn" id="close-payment">&times;</button>
+        <h2>Métodos de Pago</h2>
+        <div class="payment-option" onclick="selectPayment('Yape')">
+            <h3>Yape</h3>
+            <p>Paga rápidamente escaneando un código QR con la aplicación Yape.</p>
+        </div>
+        <div class="payment-option" onclick="selectPayment('Tarjeta')">
+            <h3>Tarjeta</h3>
+            <p>Paga con tarjeta de crédito o débito de forma segura.</p>
+        </div>
+    </div>
+
+    <!-- Inicio -->
     <section id="inicio">
-        <img src="banner.jpg" alt="Banner principal de la tienda">
-        <p>¡Bienvenido a TiendaOnline! Tu mejor opción en productos exclusivos.</p>
+        <img src="https://via.placeholder.com/1200x450" alt="Banner">
+        <h2>Bienvenidos a Nuestra Tienda</h2>
+        <p>Encuentra los mejores productos al mejor precio.</p>
     </section>
-    <!-- Sección de productos -->
+
+    <!-- Productos -->
     <section id="productos">
-        <h2>Nuestros productos</h2>
+        <h2>Nuestros Productos</h2>
         <div class="productos-lista">
             <div class="producto">
-                <img src="producto1.jpg" alt="Producto 1">
+                <img src="https://via.placeholder.com/300" alt="Producto 1">
                 <h3>Producto 1</h3>
-                <p>Descripción corta del producto 1.</p>
-                <p class="precio">Precio: $100</p>
-                <button class="cart-btn" data-producto="Producto 1" data-precio="100">Agregar al Carrito</button>
+                <p>$50</p>
+                <button class="cart-btn" data-producto="Producto 1" data-precio="50">Agregar al Carrito</button>
             </div>
             <div class="producto">
-                <img src="producto2.jpg" alt="Producto 2">
+                <img src="https://via.placeholder.com/300" alt="Producto 2">
                 <h3>Producto 2</h3>
-                <p>Descripción corta del producto 2.</p>
-                <p class="precio">Precio: $150</p>
-                <button class="cart-btn" data-producto="Producto 2" data-precio="150">Agregar al Carrito</button>
+                <p>$30</p>
+                <button class="cart-btn" data-producto="Producto 2" data-precio="30">Agregar al Carrito</button>
             </div>
             <div class="producto">
-                <img src="producto3.jpg" alt="Producto 3">
+                <img src="https://via.placeholder.com/300" alt="Producto 3">
                 <h3>Producto 3</h3>
-                <p>Descripción corta del producto 3.</p>
-                <p class="precio">Precio: $200</p>
-                <button class="cart-btn" data-producto="Producto 3" data-precio="200">Agregar al Carrito</button>
+                <p>$20</p>
+                <button class="cart-btn" data-producto="Producto 3" data-precio="20">Agregar al Carrito</button>
             </div>
         </div>
     </section>
+
+    <!-- Sobre Nosotros -->
     <section id="sobre-nosotros">
-        <h2>Sobre nosotros</h2>
-        <p>
-            Somos una tienda dedicada a ofrecer productos de calidad desde 2020.
-            Nuestro compromiso es brindar a cada cliente una experiencia única de compra,
-            ofreciendo artículos cuidadosamente seleccionados y un servicio que se adapta a sus necesidades.
-            Creemos en la importancia de la innovación, la confianza y la satisfacción total de nuestros clientes.
-        </p>
-        <p>
-            A lo largo de estos años, hemos crecido gracias a la preferencia de quienes buscan no solo productos,
-            sino también un acompañamiento cercano y asesoramiento especializado.
-            Nuestra misión es convertir cada compra en una experiencia positiva y memorable.
-        </p>
+        <h2>Sobre Nosotros</h2>
+        <p>Somos una tienda comprometida con ofrecer productos de calidad a precios accesibles.</p>
         <ul>
-            <li>Atención personalizada: contamos con un equipo dispuesto a asesorarte en cada paso de tu compra.</li>
-            <li>Productos exclusivos: seleccionamos cuidadosamente cada artículo para garantizar calidad y originalidad.</li>
-            <li>Envíos a todo el país: trabajamos con servicios de logística confiables para que tus pedidos lleguen seguros y a tiempo.</li>
+            <li>Calidad garantizada</li>
+            <li>Envíos rápidos</li>
+            <li>Atención al cliente 24/7</li>
         </ul>
     </section>
-    <!-- Formulario de contacto / pedido -->
+
+    <!-- Contacto -->
     <section id="contacto">
-        <h2>Contacto / Pedido</h2>
-        <form action="mailto:tuemail@dominio.com" method="post" enctype="text/plain">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            <label for="correo">Correo electrónico:</label>
-            <input type="email" id="correo" name="correo" required>
-            <label for="telefono">Teléfono (opcional):</label>
-            <input type="tel" id="telefono" name="telefono">
-            <label for="producto">Producto que desea comprar:</label>
-            <select id="producto" name="producto" required>
-                <option value="">Seleccione un producto</option>
-                <option value="Producto 1">Producto 1</option>
-                <option value="Producto 2">Producto 2</option>
-                <option value="Producto 3">Producto 3</option>
+        <h2>Contacto</h2>
+        <form>
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo Electrónico" required>
+            <select required>
+                <option value="" disabled selected>Asunto</option>
+                <option value="consulta">Consulta</option>
+                <option value="soporte">Soporte</option>
             </select>
-            <label for="cantidad">Cantidad:</label>
-            <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
-            <label for="mensaje">Mensaje adicional:</label>
-            <textarea id="mensaje" name="mensaje"></textarea>
-            <button type="submit">Enviar pedido</button>
+            <textarea placeholder="Mensaje" rows="5" required></textarea>
+            <button type="submit">Enviar</button>
         </form>
     </section>
-</main>
-<footer>
-    <p>&copy; 2024 TiendaOnline. Todos los derechos reservados.</p>
-    <div class="redes-sociales">
-        <a href="#">Facebook</a> |
-        <a href="#">Instagram</a> |
-        <a href="#">Twitter</a>
-    </div>
-    <p>Tel: 555-123-4567 | Email: contacto@tiendaonline.com</p>
-</footer>
-<script src="../java/java.js"></script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Tienda Online. Todos los derechos reservados.</p>
+        <div class="redes-sociales">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script src="java.js"></script>
 </body>
 </html>
