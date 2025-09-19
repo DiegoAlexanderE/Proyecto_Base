@@ -10,6 +10,7 @@ function agregarAlCarrito(nombre, precio) {
     }
     localStorage.setItem('carrito', JSON.stringify(carrito));
     updateCartCount();
+    updateCartPanel();
     alert(`${nombre} añadido al carrito`);
 }
 
@@ -27,11 +28,11 @@ function clearCart() {
     carrito = [];
     localStorage.setItem('carrito', JSON.stringify(carrito));
     updateCartCount();
-    updateCartPage();
+    updateCartPanel();
 }
 
-// Función para actualizar la página del carrito
-function updateCartPage() {
+// Función para actualizar el panel del carrito
+function updateCartPanel() {
     const cartItems = document.getElementById('cart-items');
     const cartTotal = document.getElementById('cart-total');
     if (!cartItems || !cartTotal) return;
@@ -49,10 +50,34 @@ function updateCartPage() {
     cartTotal.textContent = `Total: $${total}`;
 }
 
-// Escuchar clicks en los botones "Agregar al Carrito"
+// Mostrar/Ocultar el panel del carrito
+function toggleCartPanel() {
+    const cartPanel = document.getElementById('cart-panel');
+    const paymentPanel = document.getElementById('payment-panel');
+    cartPanel.classList.toggle('active');
+    paymentPanel.classList.remove('active'); // Cerrar payment panel si está abierto
+}
+
+// Mostrar/Ocultar el panel de métodos de pago
+function togglePaymentPanel() {
+    const cartPanel = document.getElementById('cart-panel');
+    const paymentPanel = document.getElementById('payment-panel');
+    paymentPanel.classList.toggle('active');
+    cartPanel.classList.remove('active'); // Cerrar cart panel si está abierto
+}
+
+// Función para manejar la selección de método de pago
+function selectPayment(method) {
+    alert(`Método de pago seleccionado: ${method}`);
+    // Aquí puedes agregar lógica para procesar el pago
+}
+
+// Escuchar clicks en los botones y el carrito
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount(); // Actualizar contador al cargar la página
-    updateCartPage(); // Actualizar página del carrito si está en carrito.html
+    updateCartPanel(); // Actualizar panel del carrito al cargar
+
+    // Botones "Agregar al Carrito"
     const cartButtons = document.querySelectorAll('.cart-btn');
     cartButtons.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -61,4 +86,21 @@ document.addEventListener('DOMContentLoaded', () => {
             agregarAlCarrito(nombre, precio);
         });
     });
+
+    // Toggle cart panel
+    const cartToggle = document.getElementById('floating-cart-toggle');
+    const cartNavToggle = document.getElementById('cart-toggle');
+    const closeCart = document.getElementById('close-cart');
+    cartToggle.addEventListener('click', toggleCartPanel);
+    cartNavToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleCartPanel();
+    });
+    closeCart.addEventListener('click', toggleCartPanel);
+
+    // Toggle payment panel
+    const buyBtn = document.getElementById('buy-btn');
+    const closePayment = document.getElementById('close-payment');
+    buyBtn.addEventListener('click', togglePaymentPanel);
+    closePayment.addEventListener('click', togglePaymentPanel);
 });
